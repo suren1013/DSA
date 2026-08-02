@@ -78,15 +78,13 @@ DSA/
 
 ## 📊 Overview
 
-**Solve rate:** `██████████████████████████████ 100% (3/3)`
+**Solve rate:** `░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
 
 ### Difficulty breakdown
 
-- **Unknown**: `████████████████████ 100% (3/3)`
 
 ### Status breakdown
 
-- **Solved**: `████████████████████ 100% (3/3)`
 
 ## 🔥 Streak & Activity
 
@@ -97,40 +95,15 @@ DSA/
 
 ## 🗂️ Topics
 
-### arrays (2/2 solved)
-
-`█████████████████████████ 100% (2/2)`
-
-| Problem | Difficulty | Status | Time | Space | Source |
-|---------|-----------|--------|------|-------|--------|
-| [Merge Intervals](problems/arrays/merge-intervals) | Unknown | Solved | — | — | custom |
-| [Verify Problem](problems/arrays/verify-problem) | Unknown | Solved | — | — | custom |
-
-### bitwise (1/1 solved)
-
-`█████████████████████████ 100% (1/1)`
-
-| Problem | Difficulty | Status | Time | Space | Source |
-|---------|-----------|--------|------|-------|--------|
-| [Final Verify](problems/bitwise/final-verify) | Unknown | Solved | — | — | custom |
+_No problems tracked yet._
 
 ## ✅ Solved Problems
 
-_3 problem(s) solved_
-
-| # | Problem | Topic | Difficulty | Time | Space | Source | Solved |
-|---|---------|-------|-----------|------|-------|--------|--------|
-| 1 | [Final Verify](problems/bitwise/final-verify) | bitwise | Unknown | — | — | custom | 2026-08-02 |
-| 2 | [Merge Intervals](problems/arrays/merge-intervals) | arrays | Unknown | — | — | custom | 2026-08-02 |
-| 3 | [Verify Problem](problems/arrays/verify-problem) | arrays | Unknown | — | — | custom | 2026-08-02 |
+_No problems solved yet._
 
 ## 🏆 Recent Solves
 
-| Date | Problem | Topic | Difficulty | Source |
-|------|---------|-------|-----------|--------|
-| 2026-08-02 | Merge Intervals | arrays | Unknown | custom |
-| 2026-08-02 | Verify Problem | arrays | Unknown | custom |
-| 2026-08-02 | Final Verify | bitwise | Unknown | custom |
+_No solves recorded yet._
 
 ## 🕐 Recent Activity
 
@@ -138,11 +111,11 @@ _No attempts recorded yet._
 
 ## 💻 Language Breakdown
 
-- **Java**: `████████████████████ 100% (3/3)`
+_No problems tracked yet._
 
 ## 🌐 Source Breakdown
 
-- **custom**: `████████████████████ 100% (3/3)`
+_No sources tracked yet._
 
 <!-- DSA:AUTO:END -->
 
