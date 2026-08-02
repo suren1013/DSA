@@ -78,13 +78,13 @@ DSA/
 
 ## 📊 Overview
 
-**Solve rate:** `░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
+**Solve rate:** `██████████████████████████████ 100% (1/1)`
 
 ### Difficulty breakdown
 
-- **Easy**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
-- **Medium**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
-- **Hard**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
+- **Easy**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/1)`
+- **Medium**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/1)`
+- **Hard**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/1)`
 
 ### Status breakdown
 
@@ -98,15 +98,27 @@ DSA/
 
 ## 🗂️ Topics
 
-_No problems tracked yet._
+### arrays (1/1 solved)
+
+`█████████████████████████ 100% (1/1)`
+
+| Problem | Difficulty | Status | Time | Space | Source |
+|---------|-----------|--------|------|-------|--------|
+| [Merge Intervals](problems/arrays/merge-intervals) | Unknown | Solved | — | — | custom |
 
 ## ✅ Solved Problems
 
-_No problems solved yet._
+_1 problem(s) solved_
+
+| # | Problem | Topic | Difficulty | Time | Space | Source | Solved |
+|---|---------|-------|-----------|------|-------|--------|--------|
+| 1 | [Merge Intervals](problems/arrays/merge-intervals) | arrays | Unknown | — | — | custom | 2026-08-02 |
 
 ## 🏆 Recent Solves
 
-_No solves recorded yet._
+| Date | Problem | Topic | Difficulty | Source |
+|------|---------|-------|-----------|--------|
+| 2026-08-02 | Merge Intervals | arrays | Unknown | custom |
 
 ## 🕐 Recent Activity
 
@@ -114,11 +126,11 @@ _No attempts recorded yet._
 
 ## 💻 Language Breakdown
 
-_No problems tracked yet._
+- **Java**: `████████████████████ 100% (1/1)`
 
 ## 🌐 Source Breakdown
 
-_No sources tracked yet._
+- **custom**: `████████████████████ 100% (1/1)`
 
 <!-- DSA:AUTO:END -->
 
