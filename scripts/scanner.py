@@ -58,13 +58,14 @@ class Problem:
         ]
         if accepted:
             return max(accepted)
-        if self.status in ("solved", "reviewed") and self.updated_at:
+        if self.is_solved and self.updated_at:
             return self.updated_at
         return self.created_at
 
     @property
     def is_solved(self) -> bool:
-        return self.status in ("solved", "reviewed")
+        # Support both lowercase (legacy) and capitalized (CLI) status values.
+        return self.status.lower() in ("solved", "reviewed")
 
     def to_dict(self) -> dict:
         d = asdict(self)
@@ -147,27 +148,46 @@ def _from_metadata(problem_dir: Path) -> Problem | None:
     if not isinstance(meta, dict):
         return None
 
-    source = meta.get("source") or {}
-    if not isinstance(source, dict):
-        source = {}
+    # Support both legacy (object) and CLI (string) source formats.
+    source = meta.get("source")
+    if isinstance(source, dict):
+        platform = str(source.get("platform", ""))
+        url = str(source.get("url", ""))
+        problem_id = str(source.get("problemId", ""))
+    elif isinstance(source, str):
+        platform = source
+        url = ""
+        problem_id = ""
+    else:
+        platform = ""
+        url = ""
+        problem_id = ""
+
+    # Support both legacy (createdAt/updatedAt) and CLI (created/solved) date fields.
+    created_at = str(meta.get("createdAt", "") or meta.get("created", ""))
+    updated_at = str(meta.get("updatedAt", "") or meta.get("solved", "") or created_at)
+
+    # Support both legacy (timeComplexity/spaceComplexity) and CLI (snake_case) fields.
+    time_complexity = str(meta.get("timeComplexity", "") or meta.get("time_complexity", ""))
+    space_complexity = str(meta.get("spaceComplexity", "") or meta.get("space_complexity", ""))
 
     return Problem(
-        slug=problem_dir.name,
+        slug=str(meta.get("slug", "")) or problem_dir.name,
         title=str(meta.get("title", "")),
         topic=str(meta.get("topic", "")) or problem_dir.parent.name,
         path=_rel(problem_dir),
-        platform=str(source.get("platform", "")),
-        url=str(source.get("url", "")),
-        problem_id=str(source.get("problemId", "")),
+        platform=platform,
+        url=url,
+        problem_id=problem_id,
         difficulty=str(meta.get("difficulty", "")),
         status=str(meta.get("status", "")),
         language=str(meta.get("language", "java")),
         tags=list(meta.get("tags", [])),
-        time_complexity=str(meta.get("timeComplexity", "")),
-        space_complexity=str(meta.get("spaceComplexity", "")),
+        time_complexity=time_complexity,
+        space_complexity=space_complexity,
         attempts=list(meta.get("attempts", [])),
-        created_at=str(meta.get("createdAt", "")),
-        updated_at=str(meta.get("updatedAt", "")),
+        created_at=created_at,
+        updated_at=updated_at,
         metadata_source="metadata.json",
     )
 

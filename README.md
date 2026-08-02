@@ -78,17 +78,16 @@ DSA/
 
 ## 📊 Overview
 
-**Solve rate:** `██████████████████████████████ 100% (1/1)`
+**Solve rate:** `░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
 
 ### Difficulty breakdown
 
-- **Easy**: `████████████████████ 100% (1/1)`
-- **Medium**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/1)`
-- **Hard**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/1)`
+- **Easy**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
+- **Medium**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
+- **Hard**: `░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
 
 ### Status breakdown
 
-- **Solved**: `████████████████████ 100% (1/1)`
 
 ## 🔥 Streak & Activity
 
@@ -99,46 +98,27 @@ DSA/
 
 ## 🗂️ Topics
 
-### arrays (1/1 solved)
-
-`█████████████████████████ 100% (1/1)`
-
-| Problem | Difficulty | Status | Time | Space | Source |
-|---------|-----------|--------|------|-------|--------|
-| [Two Sum](problems/arrays/two-sum/README.md) | easy | solved | O(n) | O(n) | LeetCode |
+_No problems tracked yet._
 
 ## ✅ Solved Problems
 
-_1 problem(s) solved_
-
-| # | Problem | Topic | Difficulty | Time | Space | Source | Solved |
-|---|---------|-------|-----------|------|-------|--------|--------|
-| 1 | [Two Sum](problems/arrays/two-sum/README.md) | arrays | easy | O(n) | O(n) | LeetCode | 2026-08-02 |
+_No problems solved yet._
 
 ## 🏆 Recent Solves
 
-| Date | Problem | Topic | Difficulty | Source |
-|------|---------|-------|-----------|--------|
-| 2026-08-02 | Two Sum | arrays | easy | LeetCode |
+_No solves recorded yet._
 
 ## 🕐 Recent Activity
 
-| Date | Problem | Topic | Outcome |
-|------|---------|-------|---------|
-| 2026-08-02 | Two Sum | arrays | accepted |
+_No attempts recorded yet._
 
 ## 💻 Language Breakdown
 
-- **java**: `████████████████████ 100% (1/1)`
+_No problems tracked yet._
 
 ## 🌐 Source Breakdown
 
-- **LeetCode**: `████████████████████ 100% (1/1)`
-
-## 🏷️ Tag Breakdown
-
-- **array**: `████████░░░░░░░ 50% (1/2)`
-- **hash-table**: `████████░░░░░░░ 50% (1/2)`
+_No sources tracked yet._
 
 <!-- DSA:AUTO:END -->
 
@@ -146,7 +126,28 @@ _1 problem(s) solved_
 
 ## 🚀 Quick start
 
-### Add a new problem (recommended)
+### CLI — the two-command workflow
+
+The fastest way to work with this repo is the CLI. From the repository root:
+
+```bash
+np "Two Sum" arrays          # create a new problem (opens VS Code)
+sp                           # mark solved, regenerate, commit & push
+```
+
+- `np` (New Problem): `np "Problem Name" topic [source]`
+  - source is optional, defaults to `custom` (e.g. `leetcode`, `gfg`)
+  - creates `problems/<topic>/<slug>/` with `Solution.java`, `metadata.json`, `notes.md`
+  - auto-opens `Solution.java` in VS Code (if `code` is on PATH)
+- `sp` (Solve & Push): validates, marks a `Solving` problem as `Solved`,
+  regenerates the dashboard/site/README, then commits and pushes.
+- `reset`: deletes all problem folders (keeps topic folders), regenerates the
+  dashboard/site/README to an empty state, and optionally commits.
+
+Equivalent long forms: `python -m cli new "Two Sum" arrays`, `python -m cli push`,
+and `python -m cli reset`.
+
+### Add a new problem (script)
 
 Use the scaffolding script to create a correctly-structured folder:
 

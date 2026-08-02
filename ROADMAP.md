@@ -53,6 +53,8 @@ Progress is tracked by milestone. Items are exploratory and may change.
 - [x] GitHub Action to regenerate README, dashboard & site data on push (`.github/workflows/generate.yml`)
 - [x] GitHub Pages deployment workflow (`.github/workflows/pages.yml`)
 - [x] Scanner smoke test in CI (`.github/workflows/validate.yml`)
+- [x] CLI (`cli/`) with `np` (new problem), `sp` (solve & push), and `reset` commands
+- [x] Cross-platform launchers (`np.bat`/`sp.bat`/`reset.bat` for Windows, `np`/`sp`/`reset` for Unix)
 - [ ] Auto-bump `updatedAt` when a problem folder changes
 - [ ] Optional: compile + run `Solution.java` against sample tests
 - [ ] Pre-commit hook to run `validate.py` locally

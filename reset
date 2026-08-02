@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# reset — Reset repository launcher (Linux/macOS)
+# Usage: reset
+python3 -m cli reset "$@"

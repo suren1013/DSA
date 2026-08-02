@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# np — New Problem launcher (Linux/macOS)
+# Usage: np "Two Sum" arrays [source]
+python3 -m cli new "$@"

@@ -35,12 +35,19 @@ TEMPLATES_DIR = ROOT / "templates"
 KEBAB_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+# Legacy (object source, createdAt/updatedAt) and CLI (string source, created/solved)
+# metadata formats are both supported.
 REQUIRED_FIELDS = [
     "title", "topic", "source", "difficulty",
-    "status", "language", "createdAt", "updatedAt",
+    "status", "language",
 ]
-ALLOWED_DIFFICULTY = {"easy", "medium", "hard"}
-ALLOWED_STATUS = {"todo", "in-progress", "solved", "reviewed"}
+LEGACY_DATE_FIELDS = ["createdAt", "updatedAt"]
+CLI_DATE_FIELDS = ["created", "solved"]
+ALLOWED_DIFFICULTY = {"easy", "medium", "hard", "Unknown"}
+ALLOWED_STATUS = {
+    "todo", "in-progress", "solved", "reviewed",
+    "Solving", "Solved", "In Progress", "Todo", "Reviewed",
+}
 ALLOWED_OUTCOMES = {"accepted", "wrong-answer", "timeout", "gave-up", "reviewed"}
 EXPECTED_TEMPLATES = ["Solution.java", "README.md", "notes.md", "metadata.json"]
 
@@ -156,15 +163,24 @@ def validate_metadata(problem_dir: Path, report: Report) -> None:
         if isinstance(val, str) and val.strip() == "":
             report.error(f"{rel}: metadata.json field '{field}' is empty")
 
-    # source object
+    # Date fields: require either legacy (createdAt/updatedAt) or CLI (created/solved).
+    has_legacy_dates = all(f in meta for f in LEGACY_DATE_FIELDS)
+    has_cli_dates = all(f in meta for f in CLI_DATE_FIELDS)
+    if not has_legacy_dates and not has_cli_dates:
+        report.error(
+            f"{rel}: metadata.json must include either "
+            f"{LEGACY_DATE_FIELDS} or {CLI_DATE_FIELDS}"
+        )
+
+    # source: accept object (legacy) or string (CLI)
     source = meta.get("source")
     if "source" in meta:
-        if not isinstance(source, dict):
-            report.error(f"{rel}: metadata.json 'source' must be an object")
-        else:
+        if isinstance(source, dict):
             platform = source.get("platform")
             if not isinstance(platform, str) or platform.strip() == "":
                 report.error(f"{rel}: metadata.json source.platform is missing or empty")
+        elif not isinstance(source, str) or source.strip() == "":
+            report.error(f"{rel}: metadata.json 'source' must be an object or non-empty string")
 
     # difficulty
     difficulty = meta.get("difficulty")
@@ -190,17 +206,17 @@ def validate_metadata(problem_dir: Path, report: Report) -> None:
             f"does not match folder '{topic_name}'"
         )
 
-    # dates
-    created = meta.get("createdAt")
-    updated = meta.get("updatedAt")
+    # dates — validate whichever format is present
+    created = meta.get("createdAt", meta.get("created"))
+    updated = meta.get("updatedAt", meta.get("solved"))
     created_date = parse_iso(created) if isinstance(created, str) else None
     updated_date = parse_iso(updated) if isinstance(updated, str) else None
     if isinstance(created, str) and created_date is None:
-        report.error(f"{rel}: invalid createdAt '{created}' (expected YYYY-MM-DD)")
+        report.error(f"{rel}: invalid created date '{created}' (expected YYYY-MM-DD)")
     if isinstance(updated, str) and updated_date is None:
-        report.error(f"{rel}: invalid updatedAt '{updated}' (expected YYYY-MM-DD)")
+        report.error(f"{rel}: invalid updated/solved date '{updated}' (expected YYYY-MM-DD)")
     if created_date and updated_date and updated_date < created_date:
-        report.error(f"{rel}: updatedAt ({updated}) is before createdAt ({created})")
+        report.error(f"{rel}: updated/solved date ({updated}) is before created ({created})")
 
     # attempts
     attempts = meta.get("attempts")
@@ -289,6 +305,7 @@ def validate_duplicate_sources(report: Report) -> None:
         except (json.JSONDecodeError, OSError):
             continue
         source = meta.get("source")
+        # Only object sources carry a problemId; string sources are skipped.
         if not isinstance(source, dict):
             continue
         platform = str(source.get("platform", ""))

@@ -1,95 +1,34 @@
 {
-  "generated_at": "2026-08-02T20:55:03",
+  "generated_at": "2026-08-02T22:53:49",
   "summary": {
-    "total": 1,
-    "solved": 1,
+    "total": 0,
+    "solved": 0,
     "in_progress": 0,
     "todo": 0,
-    "solve_rate": 1.0
+    "solve_rate": 0.0
   },
   "by_difficulty": {
-    "easy": 1,
+    "easy": 0,
     "medium": 0,
     "hard": 0
   },
   "by_status": {
-    "solved": 1,
+    "solved": 0,
     "reviewed": 0,
     "in-progress": 0,
     "todo": 0
   },
-  "by_topic": {
-    "arrays": {
-      "total": 1,
-      "solved": 1
-    }
-  },
-  "by_source": {
-    "LeetCode": 1
-  },
-  "by_language": {
-    "java": 1
-  },
-  "by_tag": {
-    "array": 1,
-    "hash-table": 1
-  },
+  "by_topic": {},
+  "by_source": {},
+  "by_language": {},
+  "by_tag": {},
   "streak": {
     "current_streak": 1,
     "longest_streak": 1,
     "total_active_days": 1,
     "last_active": "2026-08-02"
   },
-  "recent_solves": [
-    {
-      "title": "Two Sum",
-      "topic": "arrays",
-      "difficulty": "easy",
-      "source": "LeetCode",
-      "solved_date": "2026-08-02",
-      "path": "problems/arrays/two-sum"
-    }
-  ],
-  "activity_timeline": [
-    {
-      "date": "2026-08-02",
-      "problem": "Two Sum",
-      "topic": "arrays",
-      "outcome": "accepted"
-    }
-  ],
-  "problems": [
-    {
-      "slug": "two-sum",
-      "title": "Two Sum",
-      "topic": "arrays",
-      "path": "problems/arrays/two-sum",
-      "platform": "LeetCode",
-      "url": "https://leetcode.com/problems/two-sum/",
-      "problem_id": "1",
-      "difficulty": "easy",
-      "status": "solved",
-      "language": "java",
-      "tags": [
-        "array",
-        "hash-table"
-      ],
-      "time_complexity": "O(n)",
-      "space_complexity": "O(n)",
-      "attempts": [
-        {
-          "date": "2026-08-02",
-          "outcome": "accepted",
-          "timeComplexity": "O(n)",
-          "spaceComplexity": "O(n)",
-          "notes": "Hash map for O(1) complement lookup."
-        }
-      ],
-      "created_at": "2026-08-02",
-      "updated_at": "2026-08-02",
-      "metadata_source": "metadata.json",
-      "solved_date": "2026-08-02",
-      "is_solved": true
-    }
-  ]
+  "recent_solves": [],
+  "activity_timeline": [],
+  "problems": []
 }
