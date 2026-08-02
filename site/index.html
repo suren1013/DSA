@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSA Practice Tracker — Dashboard</title>
+  <meta name="description" content="Personal DSA practice tracker dashboard generated from problem metadata." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>DSA Practice Tracker</h1>
+      <p class="subtitle">Personal analytics dashboard · generated from repository metadata</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero stats -->
+    <section id="hero" class="hero-grid" aria-label="Summary statistics">
+      <div class="hero-card">
+        <span class="hero-value" id="stat-total">–</span>
+        <span class="hero-label">Total problems</span>
+      </div>
+      <div class="hero-card">
+        <span class="hero-value" id="stat-solved">–</span>
+        <span class="hero-label">Solved</span>
+      </div>
+      <div class="hero-card">
+        <span class="hero-value" id="stat-rate">–</span>
+        <span class="hero-label">Solve rate</span>
+      </div>
+      <div class="hero-card">
+        <span class="hero-value" id="stat-streak">–</span>
+        <span class="hero-label">Current streak</span>
+      </div>
+      <div class="hero-card">
+        <span class="hero-value" id="stat-active">–</span>
+        <span class="hero-label">Active days</span>
+      </div>
+      <div class="hero-card">
+        <span class="hero-value" id="stat-last">–</span>
+        <span class="hero-label">Last active</span>
+      </div>
+    </section>
+
+    <!-- Charts / summary blocks -->
+    <section class="charts-grid" aria-label="Breakdowns">
+      <div class="card">
+        <h2>Difficulty</h2>
+        <div id="chart-difficulty" class="bar-list"></div>
+      </div>
+      <div class="card">
+        <h2>Topics</h2>
+        <div id="chart-topics" class="bar-list"></div>
+      </div>
+      <div class="card">
+        <h2>Sources</h2>
+        <div id="chart-sources" class="bar-list"></div>
+      </div>
+      <div class="card">
+        <h2>Languages</h2>
+        <div id="chart-languages" class="bar-list"></div>
+      </div>
+    </section>
+
+    <!-- Search / filter -->
+    <section class="card search-card" aria-label="Problem search">
+      <h2>Problems</h2>
+      <div class="controls">
+        <input type="search" id="search-input" placeholder="Search by title, topic, tag, source…" aria-label="Search problems" />
+        <select id="filter-difficulty" aria-label="Filter by difficulty">
+          <option value="">All difficulties</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select id="filter-status" aria-label="Filter by status">
+          <option value="">All statuses</option>
+          <option value="solved">Solved</option>
+          <option value="reviewed">Reviewed</option>
+          <option value="in-progress">In progress</option>
+          <option value="todo">Todo</option>
+        </select>
+      </div>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Topic</th>
+              <th>Difficulty</th>
+              <th>Status</th>
+              <th>Source</th>
+              <th>Tags</th>
+              <th>Solved</th>
+            </tr>
+          </thead>
+          <tbody id="problems-body">
+            <tr><td colspan="7" class="empty">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Data source: <code>site/data/stats.json</code> · Generated from
+      <code>metadata.json</code> files · Auto-updated via GitHub Actions.
+    </p>
+  </main>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

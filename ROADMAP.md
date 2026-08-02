@@ -41,7 +41,8 @@ Progress is tracked by milestone. Items are exploratory and may change.
 - [x] Streak & activity from git commit history (`scripts/stats.py`)
 - [x] Dashboard JSON output (`dashboard/stats.json` via `scripts/generate_dashboard.py`)
 - [x] Export stats to JSON for external tooling (`dashboard/stats.json`)
-- [ ] Dedicated static dashboard page (beyond README sections)
+- [x] Dedicated static dashboard page (`site/` — GitHub Pages-ready, no build deps)
+- [x] Search/filter support in the static dashboard (title, topic, tag, source, difficulty, status)
 - [ ] Weak-topic detection (low solve rate per topic)
 - [ ] Export stats to CSV for external tooling
 
@@ -49,7 +50,9 @@ Progress is tracked by milestone. Items are exploratory and may change.
 
 ## 🤖 Milestone 3 — Automation
 
-- [x] GitHub Action to regenerate README & dashboard on push (`.github/workflows/generate.yml`)
+- [x] GitHub Action to regenerate README, dashboard & site data on push (`.github/workflows/generate.yml`)
+- [x] GitHub Pages deployment workflow (`.github/workflows/pages.yml`)
+- [x] Scanner smoke test in CI (`.github/workflows/validate.yml`)
 - [ ] Auto-bump `updatedAt` when a problem folder changes
 - [ ] Optional: compile + run `Solution.java` against sample tests
 - [ ] Pre-commit hook to run `validate.py` locally

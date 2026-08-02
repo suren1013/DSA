@@ -6,12 +6,14 @@ on:
       - "problems/**"
       - "templates/**"
       - "scripts/validate.py"
+      - "scripts/scanner.py"
       - ".github/workflows/validate.yml"
   pull_request:
     paths:
       - "problems/**"
       - "templates/**"
       - "scripts/validate.py"
+      - "scripts/scanner.py"
       - ".github/workflows/validate.yml"
 
 jobs:
@@ -29,3 +31,6 @@ jobs:
 
       - name: Validate repository
         run: python scripts/validate.py
+
+      - name: Scan metadata smoke test
+        run: python scripts/scanner.py > /dev/null

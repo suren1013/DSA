@@ -35,7 +35,7 @@ from pathlib import Path
 # Make sibling modules importable regardless of CWD.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from formatters import code_bar, dash_if_empty, pluralize, progress_bar, table  # noqa: E402
+from formatters import code_bar, dash_if_empty, pluralize  # noqa: E402
 from scanner import Problem, scan_problems  # noqa: E402
 from stats import compute_stats  # noqa: E402
 

@@ -226,6 +226,8 @@ def compute_stats() -> dict[str, Any]:
         "streak": streak,
         "recent_solves": _recent_solves(problems),
         "activity_timeline": _activity_timeline(problems),
+        # Full problem records for search/filter in the static site.
+        "problems": [p.to_dict() for p in problems],
     }
 
 
