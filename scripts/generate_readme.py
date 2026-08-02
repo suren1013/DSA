@@ -78,8 +78,7 @@ def generate_overview(stats: dict, problems: list[Problem]) -> str:
     ]
 
     diff = stats["by_difficulty"]
-    for d in ["easy", "medium", "hard"]:
-        count = diff.get(d, 0)
+    for d, count in diff.items():
         lines.append(
             f"- **{d.title()}**: {code_bar(count, total, width=20, show_count=True)}"
         )
@@ -88,8 +87,7 @@ def generate_overview(stats: dict, problems: list[Problem]) -> str:
     lines.append("### Status breakdown")
     lines.append("")
     status = stats["by_status"]
-    for st in ["solved", "reviewed", "in-progress", "todo"]:
-        count = status.get(st, 0)
+    for st, count in status.items():
         if count > 0:
             lines.append(
                 f"- **{st.replace('-', ' ').title()}**: "

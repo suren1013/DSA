@@ -1,4 +1,4 @@
-name: Generate README & Dashboard
+name: Verify generated files
 
 on:
   push:
@@ -12,13 +12,22 @@ on:
       - "scripts/generate_readme.py"
       - "scripts/generate_dashboard.py"
       - ".github/workflows/generate.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "problems/**"
+      - "scripts/scanner.py"
+      - "scripts/stats.py"
+      - "scripts/formatters.py"
+      - "scripts/build_site.py"
+      - "scripts/generate_readme.py"
+      - "scripts/generate_dashboard.py"
+      - ".github/workflows/generate.yml"
 
 jobs:
-  generate:
-    name: Regenerate README, dashboard, and site data
+  verify:
+    name: Check generated files are up-to-date
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout (full history for streak computation)
         uses: actions/checkout@v4
@@ -30,23 +39,19 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Generate dashboard JSON
-        run: python scripts/generate_dashboard.py
-
-      - name: Build site data
-        run: python scripts/build_site.py
-
-      - name: Regenerate README
-        run: python scripts/generate_readme.py
-
-      - name: Commit if changed
+      - name: Regenerate all generated files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python scripts/generate_dashboard.py
+          python scripts/build_site.py
+          python scripts/generate_readme.py
+
+      - name: Verify no changes needed
+        run: |
           git add README.md dashboard/stats.json site/data/stats.json
           if git diff --staged --quiet; then
-            echo "Everything is up to date — nothing to commit."
+            echo "All generated files are up to date."
           else
-            git commit -m "docs: auto-regenerate README, dashboard, and site data from metadata"
-            git push
+            echo "::error::Generated files are out of date. Run the CLI (sp) or the generation scripts locally before pushing."
+            git diff --staged
+            exit 1
           fi

@@ -164,6 +164,58 @@ def open_in_vscode(path: Path) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Pre-push verification (shared by `sp` and `reset`)
+# ---------------------------------------------------------------------------
+
+def verify_generated_files(root: Path) -> None:
+    """Ensure validation and generation scripts produce no changes.
+
+    Runs validate.py, then the three generation scripts. Because those scripts
+    are idempotent, calling them here guarantees that README.md,
+    dashboard/stats.json, and site/data/stats.json are current before pushing.
+
+    Raises SystemExit(1) on any failure.
+    """
+    info("  → Verifying generated files are up-to-date…")
+
+    # Validation first.
+    run_command(
+        ["python", "scripts/validate.py"],
+        root,
+        "Validate structure & metadata",
+    )
+
+    # Regenerate (idempotent — reports success even when no changes needed).
+    run_command(
+        ["python", "scripts/generate_dashboard.py"],
+        root,
+        "Generate dashboard/stats.json",
+    )
+    run_command(
+        ["python", "scripts/build_site.py"],
+        root,
+        "Build site/data/stats.json",
+    )
+    run_command(
+        ["python", "scripts/generate_readme.py"],
+        root,
+        "Update README.md",
+    )
+
+    # Check git sees no uncommitted changes to the generated files.
+    status = subprocess.run(
+        ["git", "status", "--porcelain", "README.md", "dashboard/stats.json", "site/data/stats.json"],
+        cwd=str(root), capture_output=True, text=True,
+    )
+    if status.stdout.strip():
+        error("Generated files are out of date — run the generation scripts and commit them.")
+        print(status.stdout.strip(), file=sys.stderr)
+        raise SystemExit(1)
+
+    success("✔ Generated files are up to date")
+
+
+# ---------------------------------------------------------------------------
 # Git push helper (shared by `sp` and `reset`)
 # ---------------------------------------------------------------------------
 
@@ -178,6 +230,11 @@ def git_push(root: Path) -> None:
 
     Only fails on actual merge/rebase conflicts.
     """
+    # Pre-push verification: ensure validate passes and generated files are
+    # current. Since the generation scripts are idempotent, this catches any
+    # drift caused by manual edits before we push stale data.
+    verify_generated_files(root)
+
     # Determine the current branch.
     branch_result = subprocess.run(
         ["git", "branch", "--show-current"],

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T17:47:51",
+  "generated_at": "2026-08-02T23:27:48",
   "summary": {
     "total": 1,
     "solved": 1,
@@ -8,15 +8,10 @@
     "solve_rate": 1.0
   },
   "by_difficulty": {
-    "easy": 0,
-    "medium": 0,
-    "hard": 0
+    "unknown": 1
   },
   "by_status": {
-    "solved": 0,
-    "reviewed": 0,
-    "in-progress": 0,
-    "todo": 0
+    "solved": 1
   },
   "by_topic": {
     "arrays": {

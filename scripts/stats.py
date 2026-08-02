@@ -29,8 +29,10 @@ from scanner import Problem, scan_problems  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 PROBLEMS_DIR = ROOT / "problems"
 
-DIFFICULTY_ORDER = ["easy", "medium", "hard"]
-STATUS_ORDER = ["solved", "reviewed", "in-progress", "todo"]
+# Known difficulty/status values for ordering. Unknown values are included
+# dynamically so the analytics never silently drop a new value.
+DIFFICULTY_ORDER = ["easy", "medium", "hard", "unknown"]
+STATUS_ORDER = ["solved", "reviewed", "solving", "in-progress", "todo"]
 RECENT_SOLVE_LIMIT = 10
 
 
@@ -164,18 +166,22 @@ def compute_stats() -> dict[str, Any]:
 
     total = len(problems)
     solved = sum(1 for p in problems if p.is_solved)
-    in_progress = sum(1 for p in problems if p.status == "in-progress")
-    todo = sum(1 for p in problems if p.status == "todo")
+    # Normalize status to lowercase for consistent counting (Fix 2).
+    in_progress = sum(1 for p in problems if p.status.lower() == "in-progress" or p.status.lower() == "solving")
+    todo = sum(1 for p in problems if p.status.lower() == "todo")
 
-    # By difficulty
-    diff_counts = Counter(p.difficulty for p in problems if p.difficulty)
-    by_difficulty = {
-        d: diff_counts.get(d, 0) for d in DIFFICULTY_ORDER
-    }
+    # By difficulty — dynamic: include all values found, ordered by known list
+    # then alphabetically for unknowns (Fix 3).
+    diff_counts = Counter(p.difficulty.lower() for p in problems if p.difficulty)
+    known_diff = [d for d in DIFFICULTY_ORDER if d in diff_counts]
+    unknown_diff = sorted(d for d in diff_counts if d not in DIFFICULTY_ORDER)
+    by_difficulty = {d: diff_counts.get(d, 0) for d in known_diff + unknown_diff}
 
-    # By status
-    status_counts = Counter(p.status for p in problems if p.status)
-    by_status = {s: status_counts.get(s, 0) for s in STATUS_ORDER}
+    # By status — normalize to lowercase (Fix 2).
+    status_counts = Counter(p.status.lower() for p in problems if p.status)
+    known_status = [s for s in STATUS_ORDER if s in status_counts]
+    unknown_status = sorted(s for s in status_counts if s not in STATUS_ORDER)
+    by_status = {s: status_counts.get(s, 0) for s in known_status + unknown_status}
 
     # By topic
     topic_counts: dict[str, dict[str, int]] = defaultdict(
