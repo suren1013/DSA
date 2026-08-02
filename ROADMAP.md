@@ -37,15 +37,19 @@ Progress is tracked by milestone. Items are exploratory and may change.
 - [x] Stats: problems by difficulty, by topic, by status, by source (in README)
 - [x] Activity timeline from `attempts[]` dates (recent activity section)
 - [x] Language breakdown section
+- [x] Progress bars in README (`scripts/formatters.py`)
+- [x] Streak & activity from git commit history (`scripts/stats.py`)
+- [x] Dashboard JSON output (`dashboard/stats.json` via `scripts/generate_dashboard.py`)
+- [x] Export stats to JSON for external tooling (`dashboard/stats.json`)
 - [ ] Dedicated static dashboard page (beyond README sections)
 - [ ] Weak-topic detection (low solve rate per topic)
-- [ ] Export stats to JSON/CSV for external tooling
+- [ ] Export stats to CSV for external tooling
 
 ---
 
 ## 🤖 Milestone 3 — Automation
 
-- [x] GitHub Action to regenerate README on push (`.github/workflows/generate.yml`)
+- [x] GitHub Action to regenerate README & dashboard on push (`.github/workflows/generate.yml`)
 - [ ] Auto-bump `updatedAt` when a problem folder changes
 - [ ] Optional: compile + run `Solution.java` against sample tests
 - [ ] Pre-commit hook to run `validate.py` locally

@@ -1,4 +1,4 @@
-name: Generate README
+name: Generate README & Dashboard
 
 on:
   push:
@@ -6,23 +6,31 @@ on:
     paths:
       - "problems/**"
       - "scripts/scanner.py"
+      - "scripts/stats.py"
+      - "scripts/formatters.py"
       - "scripts/generate_readme.py"
+      - "scripts/generate_dashboard.py"
       - ".github/workflows/generate.yml"
 
 jobs:
   generate:
-    name: Regenerate README from metadata
+    name: Regenerate README and dashboard
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout
+      - name: Checkout (full history for streak computation)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
+      - name: Generate dashboard JSON
+        run: python scripts/generate_dashboard.py
 
       - name: Regenerate README
         run: python scripts/generate_readme.py
@@ -31,10 +39,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add README.md dashboard/stats.json
           if git diff --staged --quiet; then
-            echo "README is up to date — nothing to commit."
+            echo "Everything is up to date — nothing to commit."
           else
-            git commit -m "docs: auto-regenerate README from metadata"
+            git commit -m "docs: auto-regenerate README and dashboard from metadata"
             git push
           fi

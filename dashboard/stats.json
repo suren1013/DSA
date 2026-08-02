@@ -1,0 +1,61 @@
+{
+  "generated_at": "2026-08-02T20:44:57",
+  "summary": {
+    "total": 1,
+    "solved": 1,
+    "in_progress": 0,
+    "todo": 0,
+    "solve_rate": 1.0
+  },
+  "by_difficulty": {
+    "easy": 1,
+    "medium": 0,
+    "hard": 0
+  },
+  "by_status": {
+    "solved": 1,
+    "reviewed": 0,
+    "in-progress": 0,
+    "todo": 0
+  },
+  "by_topic": {
+    "arrays": {
+      "total": 1,
+      "solved": 1
+    }
+  },
+  "by_source": {
+    "LeetCode": 1
+  },
+  "by_language": {
+    "java": 1
+  },
+  "by_tag": {
+    "array": 1,
+    "hash-table": 1
+  },
+  "streak": {
+    "current_streak": 1,
+    "longest_streak": 1,
+    "total_active_days": 1,
+    "last_active": "2026-08-02"
+  },
+  "recent_solves": [
+    {
+      "title": "Two Sum",
+      "topic": "arrays",
+      "difficulty": "easy",
+      "source": "LeetCode",
+      "solved_date": "2026-08-02",
+      "path": "problems/arrays/two-sum"
+    }
+  ],
+  "activity_timeline": [
+    {
+      "date": "2026-08-02",
+      "problem": "Two Sum",
+      "topic": "arrays",
+      "outcome": "accepted"
+    }
+  ]
+}
