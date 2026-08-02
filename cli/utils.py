@@ -168,15 +168,16 @@ def open_in_vscode(path: Path) -> bool:
 # ---------------------------------------------------------------------------
 
 def verify_generated_files(root: Path) -> None:
-    """Ensure validation and generation scripts produce no changes.
+    """Verify the repository is in a pushable state.
 
-    Runs validate.py, then the three generation scripts. Because those scripts
-    are idempotent, calling them here guarantees that README.md,
-    dashboard/stats.json, and site/data/stats.json are current before pushing.
+    Runs validate.py to confirm the structure and metadata are valid, then
+    checks that the generated files are committed (no uncommitted changes).
+    The `sp`/`reset` pipelines regenerate the files BEFORE committing, so by
+    the time this is called they are expected to be committed already.
 
     Raises SystemExit(1) on any failure.
     """
-    info("  → Verifying generated files are up-to-date…")
+    info("  → Verifying repository is ready to push…")
 
     # Validation first.
     run_command(
@@ -185,30 +186,13 @@ def verify_generated_files(root: Path) -> None:
         "Validate structure & metadata",
     )
 
-    # Regenerate (idempotent — reports success even when no changes needed).
-    run_command(
-        ["python", "scripts/generate_dashboard.py"],
-        root,
-        "Generate dashboard/stats.json",
-    )
-    run_command(
-        ["python", "scripts/build_site.py"],
-        root,
-        "Build site/data/stats.json",
-    )
-    run_command(
-        ["python", "scripts/generate_readme.py"],
-        root,
-        "Update README.md",
-    )
-
     # Check git sees no uncommitted changes to the generated files.
     status = subprocess.run(
         ["git", "status", "--porcelain", "README.md", "dashboard/stats.json", "site/data/stats.json"],
         cwd=str(root), capture_output=True, text=True,
     )
     if status.stdout.strip():
-        error("Generated files are out of date — run the generation scripts and commit them.")
+        error("Generated files have uncommitted changes — commit them before pushing.")
         print(status.stdout.strip(), file=sys.stderr)
         raise SystemExit(1)
 

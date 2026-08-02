@@ -215,7 +215,6 @@ def compute_stats() -> dict[str, Any]:
     streak = _compute_streak(commit_dates)
 
     return {
-        "generated_at": datetime.now().isoformat(timespec="seconds"),
         "summary": {
             "total": total,
             "solved": solved,
