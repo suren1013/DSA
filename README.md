@@ -91,10 +91,10 @@ DSA/
 
 ## 🔥 Streak & Activity
 
-- **Current streak:** 0 days
-- **Longest streak:** 0 days
-- **Total active days:** 0
-- **Last active:** —
+- **Current streak:** 1 day
+- **Longest streak:** 1 day
+- **Total active days:** 1
+- **Last active:** 2026-08-02
 
 ## 🗂️ Topics
 
