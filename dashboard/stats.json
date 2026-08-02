@@ -1,29 +1,29 @@
 {
-  "generated_at": "2026-08-02T23:45:16",
+  "generated_at": "2026-08-02T23:49:46",
   "summary": {
-    "total": 1,
-    "solved": 1,
+    "total": 2,
+    "solved": 2,
     "in_progress": 0,
     "todo": 0,
     "solve_rate": 1.0
   },
   "by_difficulty": {
-    "unknown": 1
+    "unknown": 2
   },
   "by_status": {
-    "solved": 1
+    "solved": 2
   },
   "by_topic": {
     "arrays": {
-      "total": 1,
-      "solved": 1
+      "total": 2,
+      "solved": 2
     }
   },
   "by_source": {
-    "custom": 1
+    "custom": 2
   },
   "by_language": {
-    "Java": 1
+    "Java": 2
   },
   "by_tag": {},
   "streak": {
@@ -40,6 +40,14 @@
       "source": "custom",
       "solved_date": "2026-08-02",
       "path": "problems/arrays/merge-intervals"
+    },
+    {
+      "title": "Verify Problem",
+      "topic": "arrays",
+      "difficulty": "Unknown",
+      "source": "custom",
+      "solved_date": "2026-08-02",
+      "path": "problems/arrays/verify-problem"
     }
   ],
   "activity_timeline": [],
@@ -49,6 +57,27 @@
       "title": "Merge Intervals",
       "topic": "arrays",
       "path": "problems/arrays/merge-intervals",
+      "platform": "custom",
+      "url": "",
+      "problem_id": "",
+      "difficulty": "Unknown",
+      "status": "Solved",
+      "language": "Java",
+      "tags": [],
+      "time_complexity": "",
+      "space_complexity": "",
+      "attempts": [],
+      "created_at": "2026-08-02",
+      "updated_at": "2026-08-02",
+      "metadata_source": "metadata.json",
+      "solved_date": "2026-08-02",
+      "is_solved": true
+    },
+    {
+      "slug": "verify-problem",
+      "title": "Verify Problem",
+      "topic": "arrays",
+      "path": "problems/arrays/verify-problem",
       "platform": "custom",
       "url": "",
       "problem_id": "",

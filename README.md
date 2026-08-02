@@ -78,15 +78,15 @@ DSA/
 
 ## 📊 Overview
 
-**Solve rate:** `██████████████████████████████ 100% (1/1)`
+**Solve rate:** `██████████████████████████████ 100% (2/2)`
 
 ### Difficulty breakdown
 
-- **Unknown**: `████████████████████ 100% (1/1)`
+- **Unknown**: `████████████████████ 100% (2/2)`
 
 ### Status breakdown
 
-- **Solved**: `████████████████████ 100% (1/1)`
+- **Solved**: `████████████████████ 100% (2/2)`
 
 ## 🔥 Streak & Activity
 
@@ -97,27 +97,30 @@ DSA/
 
 ## 🗂️ Topics
 
-### arrays (1/1 solved)
+### arrays (2/2 solved)
 
-`█████████████████████████ 100% (1/1)`
+`█████████████████████████ 100% (2/2)`
 
 | Problem | Difficulty | Status | Time | Space | Source |
 |---------|-----------|--------|------|-------|--------|
 | [Merge Intervals](problems/arrays/merge-intervals) | Unknown | Solved | — | — | custom |
+| [Verify Problem](problems/arrays/verify-problem) | Unknown | Solved | — | — | custom |
 
 ## ✅ Solved Problems
 
-_1 problem(s) solved_
+_2 problem(s) solved_
 
 | # | Problem | Topic | Difficulty | Time | Space | Source | Solved |
 |---|---------|-------|-----------|------|-------|--------|--------|
 | 1 | [Merge Intervals](problems/arrays/merge-intervals) | arrays | Unknown | — | — | custom | 2026-08-02 |
+| 2 | [Verify Problem](problems/arrays/verify-problem) | arrays | Unknown | — | — | custom | 2026-08-02 |
 
 ## 🏆 Recent Solves
 
 | Date | Problem | Topic | Difficulty | Source |
 |------|---------|-------|-----------|--------|
 | 2026-08-02 | Merge Intervals | arrays | Unknown | custom |
+| 2026-08-02 | Verify Problem | arrays | Unknown | custom |
 
 ## 🕐 Recent Activity
 
@@ -125,11 +128,11 @@ _No attempts recorded yet._
 
 ## 💻 Language Breakdown
 
-- **Java**: `████████████████████ 100% (1/1)`
+- **Java**: `████████████████████ 100% (2/2)`
 
 ## 🌐 Source Breakdown
 
-- **custom**: `████████████████████ 100% (1/1)`
+- **custom**: `████████████████████ 100% (2/2)`
 
 <!-- DSA:AUTO:END -->
 
