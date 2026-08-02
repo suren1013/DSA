@@ -78,15 +78,15 @@ DSA/
 
 ## 📊 Overview
 
-**Solve rate:** `██████████████████████████████ 100% (2/2)`
+**Solve rate:** `██████████████████████████████ 100% (3/3)`
 
 ### Difficulty breakdown
 
-- **Unknown**: `████████████████████ 100% (2/2)`
+- **Unknown**: `████████████████████ 100% (3/3)`
 
 ### Status breakdown
 
-- **Solved**: `████████████████████ 100% (2/2)`
+- **Solved**: `████████████████████ 100% (3/3)`
 
 ## 🔥 Streak & Activity
 
@@ -106,14 +106,23 @@ DSA/
 | [Merge Intervals](problems/arrays/merge-intervals) | Unknown | Solved | — | — | custom |
 | [Verify Problem](problems/arrays/verify-problem) | Unknown | Solved | — | — | custom |
 
+### bitwise (1/1 solved)
+
+`█████████████████████████ 100% (1/1)`
+
+| Problem | Difficulty | Status | Time | Space | Source |
+|---------|-----------|--------|------|-------|--------|
+| [Final Verify](problems/bitwise/final-verify) | Unknown | Solved | — | — | custom |
+
 ## ✅ Solved Problems
 
-_2 problem(s) solved_
+_3 problem(s) solved_
 
 | # | Problem | Topic | Difficulty | Time | Space | Source | Solved |
 |---|---------|-------|-----------|------|-------|--------|--------|
-| 1 | [Merge Intervals](problems/arrays/merge-intervals) | arrays | Unknown | — | — | custom | 2026-08-02 |
-| 2 | [Verify Problem](problems/arrays/verify-problem) | arrays | Unknown | — | — | custom | 2026-08-02 |
+| 1 | [Final Verify](problems/bitwise/final-verify) | bitwise | Unknown | — | — | custom | 2026-08-02 |
+| 2 | [Merge Intervals](problems/arrays/merge-intervals) | arrays | Unknown | — | — | custom | 2026-08-02 |
+| 3 | [Verify Problem](problems/arrays/verify-problem) | arrays | Unknown | — | — | custom | 2026-08-02 |
 
 ## 🏆 Recent Solves
 
@@ -121,6 +130,7 @@ _2 problem(s) solved_
 |------|---------|-------|-----------|--------|
 | 2026-08-02 | Merge Intervals | arrays | Unknown | custom |
 | 2026-08-02 | Verify Problem | arrays | Unknown | custom |
+| 2026-08-02 | Final Verify | bitwise | Unknown | custom |
 
 ## 🕐 Recent Activity
 
@@ -128,11 +138,11 @@ _No attempts recorded yet._
 
 ## 💻 Language Breakdown
 
-- **Java**: `████████████████████ 100% (2/2)`
+- **Java**: `████████████████████ 100% (3/3)`
 
 ## 🌐 Source Breakdown
 
-- **custom**: `████████████████████ 100% (2/2)`
+- **custom**: `████████████████████ 100% (3/3)`
 
 <!-- DSA:AUTO:END -->
 
