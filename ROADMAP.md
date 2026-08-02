@@ -22,19 +22,22 @@ Progress is tracked by milestone. Items are exploratory and may change.
 
 ## 🚧 Milestone 1 — Metadata & searchability
 
-- [ ] Auto-generated `INDEX.md` of all problems (title, topic, difficulty, status)
-- [ ] Topic-level `README.md` auto-summary
+- [x] Metadata scanner (`scripts/scanner.py`) — parses `metadata.json` + Solution.java fallback
+- [x] Auto-generated README sections (stats, topics, solved table, activity, languages)
+- [x] Topic-wise summary sections in root README
+- [x] Detect duplicate problems (same source + problemId) in `validate.py`
+- [x] Detect duplicate problem slugs across topics in `validate.py`
+- [x] Track revision history via `attempts[]` (recent activity section)
 - [ ] Tag-based filtering helper script
-- [ ] Detect duplicate problems (same source + problemId)
-- [ ] Track revision history via `attempts[]` analytics
 
 ---
 
 ## 📊 Milestone 2 — Analytics & dashboards
 
-- [ ] Static dashboard generated from `metadata.json` across all problems
-- [ ] Stats: problems by difficulty, by topic, by status, by source
-- [ ] Streak / activity timeline from `attempts[]` dates
+- [x] Stats: problems by difficulty, by topic, by status, by source (in README)
+- [x] Activity timeline from `attempts[]` dates (recent activity section)
+- [x] Language breakdown section
+- [ ] Dedicated static dashboard page (beyond README sections)
 - [ ] Weak-topic detection (low solve rate per topic)
 - [ ] Export stats to JSON/CSV for external tooling
 
@@ -42,7 +45,7 @@ Progress is tracked by milestone. Items are exploratory and may change.
 
 ## 🤖 Milestone 3 — Automation
 
-- [ ] GitHub Action to regenerate `INDEX.md` and dashboard on push
+- [x] GitHub Action to regenerate README on push (`.github/workflows/generate.yml`)
 - [ ] Auto-bump `updatedAt` when a problem folder changes
 - [ ] Optional: compile + run `Solution.java` against sample tests
 - [ ] Pre-commit hook to run `validate.py` locally

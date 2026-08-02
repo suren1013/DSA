@@ -11,6 +11,8 @@ Checks:
   6. topic in metadata matches the topic folder name.
   7. Dates are valid ISO (YYYY-MM-DD) and updatedAt >= createdAt.
   8. No misplaced metadata.json / Solution.java files.
+  9. No duplicate problem slugs across topics (warning).
+  10. No duplicate problems (same platform + problemId).
 
 Usage:
   python scripts/validate.py
@@ -260,12 +262,58 @@ def validate_problem_folder(problem_dir: Path, report: Report) -> None:
     validate_solution_class(problem_dir, report)
 
 
+def validate_duplicate_slugs(report: Report) -> None:
+    """Warn about duplicate problem slugs across topics."""
+    slug_topics: dict[str, list[str]] = {}
+    for problem_dir in find_problem_folders():
+        slug = problem_dir.name
+        topic = problem_dir.parent.name
+        slug_topics.setdefault(slug, []).append(topic)
+    for slug, topics in slug_topics.items():
+        if len(topics) > 1:
+            report.warn(
+                f"Duplicate slug '{slug}' found in topics: "
+                f"{', '.join(sorted(topics))}"
+            )
+
+
+def validate_duplicate_sources(report: Report) -> None:
+    """Error on duplicate problems (same platform + problemId)."""
+    seen: dict[str, str] = {}
+    for problem_dir in find_problem_folders():
+        meta_path = problem_dir / "metadata.json"
+        if not meta_path.exists():
+            continue
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        source = meta.get("source")
+        if not isinstance(source, dict):
+            continue
+        platform = str(source.get("platform", ""))
+        problem_id = str(source.get("problemId", ""))
+        if not platform or not problem_id:
+            continue
+        key = f"{platform}::{problem_id}"
+        rel = str(problem_dir.relative_to(ROOT)).replace("\\", "/")
+        if key in seen:
+            report.error(
+                f"Duplicate problem: '{rel}' and '{seen[key]}' "
+                f"share source {platform} #{problem_id}"
+            )
+        else:
+            seen[key] = rel
+
+
 def main() -> int:
     report = Report()
     validate_templates(report)
     validate_stray_files(report)
     for problem_dir in find_problem_folders():
         validate_problem_folder(problem_dir, report)
+    validate_duplicate_slugs(report)
+    validate_duplicate_sources(report)
 
     print(report.summary())
     if report.errors:
