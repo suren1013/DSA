@@ -1,0 +1,26 @@
+{
+  "title": "Two Sum",
+  "topic": "arrays",
+  "source": {
+    "platform": "LeetCode",
+    "url": "https://leetcode.com/problems/two-sum/",
+    "problemId": "1"
+  },
+  "difficulty": "easy",
+  "status": "solved",
+  "language": "java",
+  "tags": ["array", "hash-table"],
+  "timeComplexity": "O(n)",
+  "spaceComplexity": "O(n)",
+  "attempts": [
+    {
+      "date": "2026-08-02",
+      "outcome": "accepted",
+      "timeComplexity": "O(n)",
+      "spaceComplexity": "O(n)",
+      "notes": "Hash map for O(1) complement lookup."
+    }
+  ],
+  "createdAt": "2026-08-02",
+  "updatedAt": "2026-08-02"
+}

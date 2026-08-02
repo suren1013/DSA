@@ -1,0 +1,18 @@
+{
+  "title": "{{TITLE}}",
+  "topic": "{{TOPIC}}",
+  "source": {
+    "platform": "{{SOURCE_PLATFORM}}",
+    "url": "{{URL}}",
+    "problemId": "{{SOURCE_ID}}"
+  },
+  "difficulty": "{{DIFFICULTY}}",
+  "status": "todo",
+  "language": "java",
+  "tags": [],
+  "timeComplexity": "",
+  "spaceComplexity": "",
+  "attempts": [],
+  "createdAt": "{{CREATED_AT}}",
+  "updatedAt": "{{UPDATED_AT}}"
+}
