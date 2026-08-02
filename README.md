@@ -78,13 +78,15 @@ DSA/
 
 ## 📊 Overview
 
-**Solve rate:** `░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 0% (0/0)`
+**Solve rate:** `██████████████████████████████ 100% (1/1)`
 
 ### Difficulty breakdown
 
+- **Unknown**: `████████████████████ 100% (1/1)`
 
 ### Status breakdown
 
+- **Solved**: `████████████████████ 100% (1/1)`
 
 ## 🔥 Streak & Activity
 
@@ -95,15 +97,27 @@ DSA/
 
 ## 🗂️ Topics
 
-_No problems tracked yet._
+### greedy (1/1 solved)
+
+`█████████████████████████ 100% (1/1)`
+
+| Problem | Difficulty | Status | Time | Space | Source |
+|---------|-----------|--------|------|-------|--------|
+| [Alice Apple Tree](problems/greedy/alice-apple-tree) | Unknown | Solved | — | — | class |
 
 ## ✅ Solved Problems
 
-_No problems solved yet._
+_1 problem(s) solved_
+
+| # | Problem | Topic | Difficulty | Time | Space | Source | Solved |
+|---|---------|-------|-----------|------|-------|--------|--------|
+| 1 | [Alice Apple Tree](problems/greedy/alice-apple-tree) | greedy | Unknown | — | — | class | 2026-08-03 |
 
 ## 🏆 Recent Solves
 
-_No solves recorded yet._
+| Date | Problem | Topic | Difficulty | Source |
+|------|---------|-------|-----------|--------|
+| 2026-08-03 | Alice Apple Tree | greedy | Unknown | class |
 
 ## 🕐 Recent Activity
 
@@ -111,11 +125,11 @@ _No attempts recorded yet._
 
 ## 💻 Language Breakdown
 
-_No problems tracked yet._
+- **Java**: `████████████████████ 100% (1/1)`
 
 ## 🌐 Source Breakdown
 
-_No sources tracked yet._
+- **class**: `████████████████████ 100% (1/1)`
 
 <!-- DSA:AUTO:END -->
 

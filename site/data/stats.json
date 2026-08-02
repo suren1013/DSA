@@ -1,16 +1,29 @@
 {
   "summary": {
-    "total": 0,
-    "solved": 0,
+    "total": 1,
+    "solved": 1,
     "in_progress": 0,
     "todo": 0,
-    "solve_rate": 0.0
+    "solve_rate": 1.0
   },
-  "by_difficulty": {},
-  "by_status": {},
-  "by_topic": {},
-  "by_source": {},
-  "by_language": {},
+  "by_difficulty": {
+    "unknown": 1
+  },
+  "by_status": {
+    "solved": 1
+  },
+  "by_topic": {
+    "greedy": {
+      "total": 1,
+      "solved": 1
+    }
+  },
+  "by_source": {
+    "class": 1
+  },
+  "by_language": {
+    "Java": 1
+  },
   "by_tag": {},
   "streak": {
     "current_streak": 1,
@@ -18,7 +31,38 @@
     "total_active_days": 1,
     "last_active": "2026-08-02"
   },
-  "recent_solves": [],
+  "recent_solves": [
+    {
+      "title": "Alice Apple Tree",
+      "topic": "greedy",
+      "difficulty": "Unknown",
+      "source": "class",
+      "solved_date": "2026-08-03",
+      "path": "problems/greedy/alice-apple-tree"
+    }
+  ],
   "activity_timeline": [],
-  "problems": []
+  "problems": [
+    {
+      "slug": "alice-apple-tree",
+      "title": "Alice Apple Tree",
+      "topic": "greedy",
+      "path": "problems/greedy/alice-apple-tree",
+      "platform": "class",
+      "url": "",
+      "problem_id": "",
+      "difficulty": "Unknown",
+      "status": "Solved",
+      "language": "Java",
+      "tags": [],
+      "time_complexity": "",
+      "space_complexity": "",
+      "attempts": [],
+      "created_at": "2026-08-03",
+      "updated_at": "2026-08-03",
+      "metadata_source": "metadata.json",
+      "solved_date": "2026-08-03",
+      "is_solved": true
+    }
+  ]
 }
